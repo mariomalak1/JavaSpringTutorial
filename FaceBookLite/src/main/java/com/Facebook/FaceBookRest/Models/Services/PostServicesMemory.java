@@ -1,6 +1,5 @@
-package com.Facebook.FaceBookRest.Services;
+package com.Facebook.FaceBookRest.Models.Services;
 
-import com.Facebook.FaceBookRest.Models.Comment;
 import com.Facebook.FaceBookRest.Models.Post;
 
 import java.util.ArrayList;

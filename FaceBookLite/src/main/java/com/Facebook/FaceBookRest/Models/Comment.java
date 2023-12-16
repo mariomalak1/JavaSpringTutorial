@@ -1,11 +1,26 @@
 package com.Facebook.FaceBookRest.Models;
 
+import com.Facebook.FaceBookRest.Controllers.CommentController;
+
 public class Comment {
     int ID;
     String Content;
-    Post Post;
+    Post post;
     int PostID;
 
+    public Comment(int ID, String content, Post post, int postID) {
+        this.ID = ID;
+        Content = content;
+        this.post = post;
+        PostID = postID;
+    }
+
+    public Comment(){
+        ID = 0;
+        Content = "No Content";
+        post = null;
+        PostID = 0;
+    }
 
     public int getID() {
         return ID;
@@ -24,11 +39,11 @@ public class Comment {
     }
 
     public com.Facebook.FaceBookRest.Models.Post getPost() {
-        return Post;
+        return post;
     }
 
-    public void setPost(com.Facebook.FaceBookRest.Models.Post post) {
-        Post = post;
+    public void setPost(com.Facebook.FaceBookRest.Models.Post p) {
+        post = p;
     }
 
     public int getPostID() {

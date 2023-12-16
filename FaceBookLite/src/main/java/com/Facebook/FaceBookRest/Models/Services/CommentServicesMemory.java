@@ -1,4 +1,4 @@
-package com.Facebook.FaceBookRest.Services;
+package com.Facebook.FaceBookRest.Models.Services;
 
 import com.Facebook.FaceBookRest.CustomErrors.NotFoundEntity;
 import com.Facebook.FaceBookRest.Models.Comment;
