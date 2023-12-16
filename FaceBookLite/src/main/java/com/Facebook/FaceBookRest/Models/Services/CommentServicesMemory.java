@@ -3,11 +3,13 @@ package com.Facebook.FaceBookRest.Models.Services;
 import com.Facebook.FaceBookRest.CustomErrors.NotFoundEntity;
 import com.Facebook.FaceBookRest.Models.Comment;
 import com.Facebook.FaceBookRest.Models.Post;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+@Service
 public class CommentServicesMemory implements CommentService{
     @Override
     public boolean addComment(Comment c) {

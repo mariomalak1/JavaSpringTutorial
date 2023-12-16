@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.*;
 public class CommentController {
 
     @Autowired
-    final CommentService commentService = new CommentServicesMemory();
-    final PostService postService = new PostServicesMemory();
+    CommentService commentService = new CommentServicesMemory();
+    @Autowired
+    PostService postService = new PostServicesMemory();
 
     @PostMapping("")
     public Response addComment(@RequestParam int commentID, @RequestParam String content, @RequestParam int postID) throws NotFoundEntity {
@@ -46,5 +47,4 @@ public class CommentController {
             throw new NotFoundEntity("No Post Create With This ID");
         }
     }
-
 }
