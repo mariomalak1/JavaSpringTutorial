@@ -11,6 +11,9 @@ import com.Facebook.FaceBookRest.Models.Services.PostServicesMemory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("api/comments/")
 public class CommentController {
@@ -35,8 +38,8 @@ public class CommentController {
         }
     }
 
-    @GetMapping("/get/{id}/")
-    public Response getComment(int commentID) throws NotFoundEntity {
+    @GetMapping("/get/{commentID}/")
+    public Response getComment(@PathVariable int commentID) throws NotFoundEntity {
         Comment comment = commentService.getComment(commentID);
         if (comment != null) {
             Response response = new Response();
@@ -46,5 +49,23 @@ public class CommentController {
         } else {
             throw new NotFoundEntity("No Post Create With This ID");
         }
+    }
+
+    @DeleteMapping("/delete/{commentID}/")
+    public boolean deleteComment(@PathVariable int commentID){
+        Comment comment = commentService.getComment(commentID);
+        if (comment != null){
+            commentService.deleteComment(comment.getID());
+        }
+        return false;
+    }
+
+    @GetMapping("/getAllCommentsInPost/{postID}/")
+    public List<Comment> getAllCommentsInPost(@PathVariable int postID){
+        List<Comment> comments = new ArrayList<>();
+        try {
+            comments = commentService.getAllCommentsInPost(postID);
+        } catch (NotFoundEntity ignored){}
+        return comments;
     }
 }

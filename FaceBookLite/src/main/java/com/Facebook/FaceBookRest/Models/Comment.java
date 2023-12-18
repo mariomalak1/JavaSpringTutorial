@@ -53,4 +53,9 @@ public class Comment {
     public void setPostID(int postID) {
         PostID = postID;
     }
+
+    @Override
+    public String toString() {
+        return "ID : " + this.getID() + " Post ID : " + this.getPostID() + " Content : " + this.Content;
+    }
 }
